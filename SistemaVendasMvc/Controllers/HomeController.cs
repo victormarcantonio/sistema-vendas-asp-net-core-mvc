@@ -17,7 +17,8 @@ namespace SistemaVendasMvc.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Sistema de Vendas Web";
+            ViewData["Aluno"] = "Victor Diego Marcantonio de Sousa";
 
             return View();
         }
