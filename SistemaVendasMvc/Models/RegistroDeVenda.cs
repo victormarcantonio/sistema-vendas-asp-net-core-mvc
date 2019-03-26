@@ -13,6 +13,7 @@ namespace SistemaVendasMvc.Models
 
         public RegistroDeVenda()
         {
+
         }
 
         public RegistroDeVenda(int id, DateTime data, double quantia, StatusVenda status, Vendedor vendedor)
