@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SistemaVendasMvc.Models;
 using SistemaVendasMvc.Services;
 
 namespace SistemaVendasMvc.Controllers
@@ -20,6 +21,19 @@ namespace SistemaVendasMvc.Controllers
         {
             var list = _vendedorService.FindAll();
             return View(list);
+        }
+
+        public IActionResult Criar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Criar(Vendedor vendedor)
+        {
+            _vendedorService.Insert(vendedor);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
