@@ -40,5 +40,28 @@ namespace SistemaVendasMvc.Controllers
             _vendedorService.Insert(vendedor);
             return RedirectToAction(nameof(Index));
         }
+        
+        public IActionResult Deletar(int? id)
+        {
+            if(id==null)
+            {
+                return NotFound();
+            }
+
+            var obj = _vendedorService.FindById(id.Value);
+            if(obj==null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Deletar(int id)
+        {
+            _vendedorService.Remover(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
